@@ -5,19 +5,17 @@ const CLIENT_ID = "8abf1efcb44c486";
 const ROOT_URL = "https://api.imgur.com";
 export default {
   login() {
-    const querystring = {
+    const queryString = {
       client_id: CLIENT_ID,
-      response_type: "token",
+			response_type: 'token'
     };
-    window.location = `${ROOT_URL}/oauth2/authorize?${qs.stringify(
-      querystring
-    )}`;
+    window.location = `${ROOT_URL}/oauth2/authorize?${qs.stringify(queryString)}`;
   },
-  fetchImage(token) {
-    return axios.get(`${ROOT_URL}/3/account/me/images`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+  fetchImages(token) {
+    return axios.get(`${ ROOT_URL }/3/account/me/images`, {
+			headers: {
+				Authorization: `Bearer ${ token }`
+			}
+		});
   }
 };
