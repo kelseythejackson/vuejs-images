@@ -1,6 +1,5 @@
 <template>
   <div>
-    Image List
     <img v-for="image in allImages" :key="image.id" :src="image.link" alt="image.description">
   </div>
 </template>
