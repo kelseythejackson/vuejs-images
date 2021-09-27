@@ -13,8 +13,12 @@ const actions = {
         commit('setImages', response.data.data)
     },
 
-    async uploadImages({commit},images) {
-        console.log(commit,images)
+    async uploadImages({ rootState },images) {
+        // Get the access token
+        const { token } = rootState.auth;
+        // Cakk iyr api module to do the upload
+        await api.upload(images, token)
+        // Redirect our user to ImageList component
     }
 }
 
